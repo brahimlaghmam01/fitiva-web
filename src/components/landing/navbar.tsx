@@ -23,7 +23,6 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
       if (currentScrollY < 100) {
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY) {
@@ -31,10 +30,8 @@ export function Navbar() {
       } else {
         setIsVisible(true);
       }
-      
       setLastScrollY(currentScrollY);
     };
-    
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -54,7 +51,6 @@ export function Navbar() {
 
   return (
     <>
-      {/* Desktop Floating Bottom Navbar */}
       <AnimatePresence>
         {isVisible && (
           <motion.nav
@@ -65,26 +61,21 @@ export function Navbar() {
             className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden md:block"
             dir={dir}
           >
-            <div className="flex items-center gap-2 px-2 py-2 rounded-2xl bg-white/80 backdrop-blur-xl border border-gray-200 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:bg-gray-900/80 dark:border-gray-700">
-              {/* Logo */}
-              <a 
-                href="/" 
-                className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              >
+            <div className="flex items-center gap-2 px-2 py-2 rounded-2xl bg-white/80 backdrop-blur-xl border border-border shadow-lg dark:bg-gray-900/80">
+              <a href="/" className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-muted transition-colors">
                 <div className="relative w-8 h-8 rounded-lg overflow-hidden flex-shrink-0">
                   <img
                     src="/logo.png"
                     alt="Fitiva Logo"
                     className="object-cover w-full h-full"
+                    loading="lazy"
                   />
                 </div>
                 <span className="text-sm font-bold text-foreground">Fitiva</span>
               </a>
 
-              {/* Divider */}
-              <div className="w-px h-8 bg-gray-200 dark:bg-gray-700" />
+              <div className="w-px h-8 bg-border" />
 
-              {/* Navigation Links */}
               <div className="flex items-center gap-1">
                 {navLinks.map((link) => {
                   const Icon = link.icon;
@@ -92,7 +83,7 @@ export function Navbar() {
                     <a
                       key={link.href}
                       href={link.href}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200"
                     >
                       <Icon className="w-4 h-4" />
                       <span className="hidden lg:inline">{link.label}</span>
@@ -101,14 +92,13 @@ export function Navbar() {
                 })}
               </div>
 
-              {/* Divider */}
-              <div className="w-px h-8 bg-gray-200 dark:bg-gray-700" />
+              <div className="w-px h-8 bg-border" />
 
-              {/* Language Selector */}
               <div className="relative">
                 <button
                   onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
+                  aria-label="Select language"
                 >
                   <Globe className="w-4 h-4" />
                   <span className="text-xs font-bold">{language.toUpperCase()}</span>
@@ -119,7 +109,7 @@ export function Navbar() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="absolute bottom-full mb-2 right-0 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg overflow-hidden"
+                      className="absolute bottom-full mb-2 right-0 bg-card rounded-xl border border-border shadow-lg overflow-hidden"
                     >
                       {languages.map((lang) => (
                         <button
@@ -128,8 +118,8 @@ export function Navbar() {
                             setLanguage(lang.code);
                             setIsLangMenuOpen(false);
                           }}
-                          className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-2 ${
-                            language === lang.code ? "bg-primary/10 text-primary" : "text-foreground"
+                          className={`w-full px-4 py-2.5 text-sm text-left hover:bg-muted transition-colors flex items-center gap-2 ${
+                            language === lang.code ? "bg-primary/10 text-primary font-semibold" : "text-foreground"
                           }`}
                         >
                           <span className="font-bold text-xs">{lang.flag}</span>
@@ -141,11 +131,10 @@ export function Navbar() {
                 </AnimatePresence>
               </div>
 
-              {/* Theme Toggle */}
               {mounted && (
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                  className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                   aria-label="Toggle theme"
                 >
                   {theme === "dark" ? (
@@ -156,13 +145,11 @@ export function Navbar() {
                 </button>
               )}
 
-              {/* Divider */}
-              <div className="w-px h-8 bg-gray-200 dark:bg-gray-700" />
+              <div className="w-px h-8 bg-border" />
 
-              {/* CTA Button */}
               <Button
                 size="sm"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl px-4 gap-2"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl px-4 gap-2 shadow-lg shadow-primary/20"
               >
                 <Download className="w-4 h-4" />
                 <span className="hidden lg:inline">{t("nav.download")}</span>
@@ -172,7 +159,6 @@ export function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Mobile Bottom Navbar */}
       <motion.nav
         initial={{ y: 100 }}
         animate={{ y: 0 }}
@@ -180,15 +166,13 @@ export function Navbar() {
         className="fixed bottom-4 left-4 right-4 z-50 md:hidden"
         dir={dir}
       >
-        <div className="flex items-center justify-between px-4 py-3 rounded-2xl bg-white/80 backdrop-blur-xl border border-gray-200 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:bg-gray-900/80 dark:border-gray-700">
-          {/* Logo */}
+        <div className="flex items-center justify-between px-4 py-3 rounded-2xl bg-white/80 backdrop-blur-xl border border-border shadow-lg dark:bg-gray-900/80">
           <a href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm italic">F</span>
             </div>
           </a>
 
-          {/* Center Navigation Pills */}
           <div className="flex items-center gap-1">
             {navLinks.slice(0, 3).map((link) => {
               const Icon = link.icon;
@@ -196,7 +180,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                  className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                   aria-label={link.label}
                 >
                   <Icon className="w-5 h-5" />
@@ -205,9 +189,8 @@ export function Navbar() {
             })}
           </div>
 
-          {/* Menu Button */}
           <button
-            className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+            className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -219,7 +202,6 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -227,7 +209,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.2 }}
-              className="absolute bottom-full left-0 right-0 mb-2 p-4 rounded-2xl bg-white/90 backdrop-blur-xl border border-gray-200 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:bg-gray-900/90 dark:border-gray-700"
+              className="absolute bottom-full left-0 right-0 mb-2 p-4 rounded-2xl bg-card/95 backdrop-blur-xl border border-border shadow-lg"
             >
               <div className="flex flex-col gap-2">
                 {navLinks.map((link) => {
@@ -236,7 +218,7 @@ export function Navbar() {
                     <a
                       key={link.href}
                       href={link.href}
-                      className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <Icon className="w-5 h-5" />
@@ -245,8 +227,7 @@ export function Navbar() {
                   );
                 })}
                 
-                {/* Language & Theme Row */}
-                <div className="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-3 mt-2">
+                <div className="flex items-center justify-between border-t border-border pt-3 mt-2">
                   <div className="flex items-center gap-1">
                     {languages.map((lang) => (
                       <button
@@ -255,7 +236,7 @@ export function Navbar() {
                         className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                           language === lang.code 
                             ? "bg-primary text-primary-foreground" 
-                            : "text-muted-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
+                            : "text-muted-foreground hover:bg-muted"
                         }`}
                       >
                         {lang.flag}
@@ -265,7 +246,7 @@ export function Navbar() {
                   {mounted && (
                     <button
                       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                      className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                      className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                     >
                       {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                     </button>
@@ -273,7 +254,7 @@ export function Navbar() {
                 </div>
                 
                 <Button
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl gap-2 mt-2"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl gap-2 mt-2 shadow-lg shadow-primary/20"
                 >
                   <Download className="w-4 h-4" />
                   {t("nav.downloadApp")}

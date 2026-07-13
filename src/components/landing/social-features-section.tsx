@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 import { 
   Star, 
@@ -18,10 +18,10 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
+import { useScrollAnimation, staggerContainer, staggerItem } from "@/hooks/use-scroll-animation";
 
 export function SocialFeaturesSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const { ref, isInView } = useScrollAnimation({ threshold: 0.1 });
   const { t, dir } = useLanguage();
 
   const tags = ["#Founders", "#Students", "#Busy parents", "#Remote teams"];
@@ -43,24 +43,22 @@ export function SocialFeaturesSection() {
 
   return (
     <section id="social-features" className="py-24 lg:py-32 bg-background relative overflow-hidden" ref={ref} dir={dir}>
-      {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Headline */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
           className="text-center max-w-4xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-8">
+          <motion.h2 variants={staggerItem} className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-8">
             Build steady daily <span className="inline-block align-middle mx-1 w-10 h-7 md:w-14 md:h-9 rounded-full overflow-hidden border-2 border-primary/20"><img src="/images/landing/meditation.png" alt="" className="object-cover w-full h-full" /></span> habits with a <br className="hidden md:block" />
             layout that keeps your mornings, <br className="hidden md:block" />
             evenings, <span className="inline-block align-middle mx-1 w-10 h-7 md:w-14 md:h-9 rounded-full overflow-hidden border-2 border-primary/20 bg-blue-500/10 flex items-center justify-center text-xl md:text-2xl">☁️</span> and focus simple to follow.
-          </h2>
+          </motion.h2>
           
-          <div className="space-y-6">
+          <motion.div variants={staggerItem} className="space-y-6">
             <p className="text-muted-foreground font-medium">{t("social.subtitle") || "Used by people to improve routines."}</p>
             <div className="flex flex-wrap justify-center gap-3">
               {tags.map((tag) => (
@@ -69,12 +67,10 @@ export function SocialFeaturesSection() {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Central Visualization */}
         <div className="relative h-[500px] md:h-[700px] flex items-center justify-center mb-12">
-          {/* Phone Mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
@@ -86,10 +82,10 @@ export function SocialFeaturesSection() {
               src="/images/landing/app-screen.png" 
               alt="Fitiva App Interface" 
               className="object-cover w-full h-full"
+              loading="lazy"
             />
           </motion.div>
 
-          {/* Floating Cards - Desktop */}
           <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none">
             {floatingCards.map((card) => {
               const Icon = card.icon;
@@ -119,7 +115,7 @@ export function SocialFeaturesSection() {
                       </div>
                     ) : card.src ? (
                       <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl overflow-hidden shadow-lg border border-border">
-                        <img src={card.src} alt={card.title} className="object-cover w-full h-full" />
+                        <img src={card.src} alt={card.title} className="object-cover w-full h-full" loading="lazy" />
                       </div>
                     ) : null}
                     <span className="font-semibold text-xs md:text-sm whitespace-nowrap">{card.title}</span>
@@ -129,7 +125,6 @@ export function SocialFeaturesSection() {
             })}
           </div>
 
-          {/* Mobile Grid (Alternative for Floating Cards) */}
           <div className="absolute -bottom-20 left-0 right-0 grid grid-cols-2 gap-3 md:hidden p-4">
              {floatingCards.slice(0, 6).map((card) => {
                 const Icon = card.icon;
@@ -141,7 +136,7 @@ export function SocialFeaturesSection() {
                       </div>
                     ) : card.src ? (
                       <div className="w-7 h-7 rounded-lg overflow-hidden border border-border">
-                        <img src={card.src} alt={card.title} className="object-cover w-full h-full" />
+                        <img src={card.src} alt={card.title} className="object-cover w-full h-full" loading="lazy" />
                       </div>
                     ) : null}
                     <span className="font-medium text-[10px] truncate">{card.title}</span>
@@ -151,14 +146,12 @@ export function SocialFeaturesSection() {
           </div>
         </div>
 
-        {/* Rating and Footer */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center mt-24 md:mt-32 space-y-12"
         >
-          {/* Rating Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border">
             <div className="flex -space-x-1">
               {[1, 2, 3, 4, 5].map((i) => (
@@ -169,16 +162,14 @@ export function SocialFeaturesSection() {
             <span className="text-sm text-muted-foreground">(based on 125 reviews)</span>
           </div>
 
-          {/* Footer Text */}
           <div className="max-w-2xl mx-auto">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               Stay consistent with a system that fits into real life. Simple cards, clear routines, and gentle nudges help you build progress that lasts.
             </p>
           </div>
 
-          {/* Download Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="flex items-center gap-3 bg-foreground text-background px-8 py-3.5 rounded-full font-bold hover:opacity-90 transition-opacity w-full sm:w-auto justify-center min-w-[200px]">
+            <button className="flex items-center gap-3 bg-foreground text-background px-8 py-3.5 rounded-full font-bold hover:opacity-90 transition-opacity w-full sm:w-auto justify-center min-w-[200px] shadow-lg">
               <Apple size={24} />
               <div className="text-left">
                 <div className="text-[10px] uppercase leading-none opacity-70 font-medium">Download for</div>
@@ -196,7 +187,6 @@ export function SocialFeaturesSection() {
         </motion.div>
       </div>
 
-      {/* Cloudy effect at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-background via-background/80 to-transparent z-30 pointer-events-none" />
     </section>
   );

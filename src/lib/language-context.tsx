@@ -13,7 +13,6 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   en: {
-    // Navbar
     "nav.features": "Features",
     "nav.gamification": "Gamification",
     "nav.aiCoach": "AI Coach",
@@ -21,7 +20,6 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.download": "Download",
     "nav.downloadApp": "Download App",
     
-    // Hero
     "hero.badge": "AI-Powered Fitness Platform",
     "hero.title": "Turn Fitness Into a",
     "hero.titleHighlight": "Social Game",
@@ -39,7 +37,6 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.getOnGooglePlay": "GET IT ON",
     "hero.googlePlay": "Google Play",
     
-    // Social Features
     "social.badge": "Social Features",
     "social.title": "Connect with fitness",
     "social.titleHighlight": "enthusiasts",
@@ -53,7 +50,6 @@ const translations: Record<Language, Record<string, string>> = {
     "social.communityChat": "Community Chat",
     "social.communityChatDesc": "Share tips, motivation, and celebrate wins together.",
     
-    // Gamification
     "game.badge": "Gamification",
     "game.title": "Make fitness",
     "game.titleHighlight": "fun and rewarding",
@@ -72,11 +68,21 @@ const translations: Record<Language, Record<string, string>> = {
     "game.thisWeek": "This Week",
     "game.pts": "pts",
     
-    // AI Coach
     "ai.badge": "AI Coach",
     "ai.title": "Your personal",
     "ai.titleHighlight": "AI fitness coach",
     "ai.subtitle": "Get personalized workout plans, real-time form corrections, and adaptive training that evolves with you.",
+    "ai.coach": "AI Coach",
+    "ai.active": "Active",
+    "ai.askCoach": "Ask your AI coach anything...",
+    "ai.personalizedWorkouts": "Personalized Workouts",
+    "ai.personalizedWorkoutsDesc": "AI creates custom routines based on your goals and fitness level.",
+    "ai.smartSuggestions": "Smart Suggestions",
+    "ai.smartSuggestionsDesc": "Get intelligent recommendations for your next workout session.",
+    "ai.progressTracking": "Progress Tracking",
+    "ai.progressTrackingDesc": "Track your improvement with detailed analytics and insights.",
+    "ai.adaptivePlans": "Adaptive Plans",
+    "ai.adaptivePlansDesc": "Your plan evolves as you progress, ensuring continuous improvement.",
     "ai.smartPlans": "Smart Workout Plans",
     "ai.smartPlansDesc": "AI creates personalized routines based on your goals, fitness level, and available equipment.",
     "ai.adaptiveTraining": "Adaptive Training",
@@ -87,7 +93,6 @@ const translations: Record<Language, Record<string, string>> = {
     "ai.suggestion": "Based on your progress, I suggest focusing on upper body today.",
     "ai.startWorkout": "Start Workout",
     
-    // App Preview
     "preview.badge": "App Preview",
     "preview.title": "Beautiful design,",
     "preview.titleHighlight": "powerful features",
@@ -105,13 +110,11 @@ const translations: Record<Language, Record<string, string>> = {
     "preview.notifications": "Notifications",
     "preview.weeklyProgress": "Weekly Progress",
     
-    // Testimonials
     "testimonials.badge": "Testimonials",
     "testimonials.title": "Loved by",
     "testimonials.titleHighlight": "fitness enthusiasts",
     "testimonials.subtitle": "See what our community members have to say about their Fitiva experience.",
     
-    // Stats
     "stats.badge": "Our Impact",
     "stats.title": "Growing",
     "stats.titleHighlight": "community",
@@ -121,39 +124,44 @@ const translations: Record<Language, Record<string, string>> = {
     "stats.countriesReached": "Countries Reached",
     "stats.appRating": "App Rating",
     
-    // CTA
+    "cta.badge": "Get Started",
     "cta.title": "Ready to transform your",
     "cta.titleHighlight": "fitness journey?",
     "cta.subtitle": "Join thousands of users who are already achieving their goals with Fitiva.",
     "cta.downloadNow": "Download Now - It's Free",
     "cta.noCredit": "No credit card required",
+    "cta.freeToStart": "Free to start",
     "cta.freeForever": "Free forever plan available",
     "cta.cancelAnytime": "Cancel premium anytime",
     
-    // Footer
     "footer.description": "Transform your fitness journey with AI-powered workouts, social challenges, and personalized coaching.",
-    "footer.product": "Product",
+    "footer.productTitle": "Product",
+    "footer.companyTitle": "Company",
+    "footer.supportTitle": "Support",
+    "footer.socialTitle": "Social",
     "footer.features": "Features",
+    "footer.gamification": "Gamification",
+    "footer.aiCoach": "AI Coach",
     "footer.pricing": "Pricing",
     "footer.download": "Download",
     "footer.updates": "Updates",
-    "footer.company": "Company",
     "footer.about": "About",
     "footer.careers": "Careers",
     "footer.press": "Press",
     "footer.contact": "Contact",
     "footer.resources": "Resources",
     "footer.blog": "Blog",
-    "footer.help": "Help Center",
+    "footer.helpCenter": "Help Center",
     "footer.community": "Community",
     "footer.developers": "Developers",
-    "footer.rights": "All rights reserved.",
+    "footer.allRightsReserved": "All rights reserved.",
+    "footer.privacyPolicy": "Privacy Policy",
+    "footer.termsOfService": "Terms of Service",
     "footer.privacy": "Privacy",
     "footer.terms": "Terms",
     "footer.cookies": "Cookies",
   },
   fr: {
-    // Navbar
     "nav.features": "Fonctionnalites",
     "nav.gamification": "Gamification",
     "nav.aiCoach": "Coach IA",
@@ -161,7 +169,6 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.download": "Telecharger",
     "nav.downloadApp": "Telecharger l'App",
     
-    // Hero
     "hero.badge": "Plateforme Fitness Propulsee par l'IA",
     "hero.title": "Transformez le Fitness en",
     "hero.titleHighlight": "Jeu Social",
@@ -179,7 +186,6 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.getOnGooglePlay": "DISPONIBLE SUR",
     "hero.googlePlay": "Google Play",
     
-    // Social Features
     "social.badge": "Fonctionnalites Sociales",
     "social.title": "Connectez-vous avec des",
     "social.titleHighlight": "passionnes de fitness",
@@ -193,7 +199,6 @@ const translations: Record<Language, Record<string, string>> = {
     "social.communityChat": "Chat Communautaire",
     "social.communityChatDesc": "Partagez conseils, motivation et celebrez ensemble.",
     
-    // Gamification
     "game.badge": "Gamification",
     "game.title": "Rendez le fitness",
     "game.titleHighlight": "amusant et gratifiant",
@@ -212,11 +217,21 @@ const translations: Record<Language, Record<string, string>> = {
     "game.thisWeek": "Cette Semaine",
     "game.pts": "pts",
     
-    // AI Coach
     "ai.badge": "Coach IA",
     "ai.title": "Votre coach fitness",
     "ai.titleHighlight": "personnel IA",
     "ai.subtitle": "Obtenez des plans d'entrainement personnalises et un coaching adaptatif qui evolue avec vous.",
+    "ai.coach": "Coach IA",
+    "ai.active": "Actif",
+    "ai.askCoach": "Demandez a votre coach IA...",
+    "ai.personalizedWorkouts": "Entrainements Personnalises",
+    "ai.personalizedWorkoutsDesc": "L'IA cree des routines personnalisees selon vos objectifs.",
+    "ai.smartSuggestions": "Suggestions Intelligentes",
+    "ai.smartSuggestionsDesc": "Recommandations intelligentes pour votre prochaine seance.",
+    "ai.progressTracking": "Suivi des Progres",
+    "ai.progressTrackingDesc": "Suivez votre amelioration avec des analyses detaillees.",
+    "ai.adaptivePlans": "Plans Adaptatifs",
+    "ai.adaptivePlansDesc": "Votre plan evolue avec vos progres.",
     "ai.smartPlans": "Plans Intelligents",
     "ai.smartPlansDesc": "L'IA cree des routines personnalisees selon vos objectifs et niveau.",
     "ai.adaptiveTraining": "Entrainement Adaptatif",
@@ -227,7 +242,6 @@ const translations: Record<Language, Record<string, string>> = {
     "ai.suggestion": "Selon vos progres, je suggere de travailler le haut du corps aujourd'hui.",
     "ai.startWorkout": "Commencer",
     
-    // App Preview
     "preview.badge": "Apercu de l'App",
     "preview.title": "Design elegant,",
     "preview.titleHighlight": "fonctionnalites puissantes",
@@ -245,13 +259,11 @@ const translations: Record<Language, Record<string, string>> = {
     "preview.notifications": "Notifications",
     "preview.weeklyProgress": "Progres Hebdo",
     
-    // Testimonials
     "testimonials.badge": "Temoignages",
     "testimonials.title": "Adore par les",
     "testimonials.titleHighlight": "passionnes de fitness",
     "testimonials.subtitle": "Decouvrez ce que notre communaute dit de son experience Fitiva.",
     
-    // Stats
     "stats.badge": "Notre Impact",
     "stats.title": "Communaute en",
     "stats.titleHighlight": "croissance",
@@ -261,39 +273,44 @@ const translations: Record<Language, Record<string, string>> = {
     "stats.countriesReached": "Pays Atteints",
     "stats.appRating": "Note de l'App",
     
-    // CTA
+    "cta.badge": "Commencez",
     "cta.title": "Pret a transformer votre",
     "cta.titleHighlight": "parcours fitness?",
     "cta.subtitle": "Rejoignez des milliers d'utilisateurs qui atteignent deja leurs objectifs avec Fitiva.",
     "cta.downloadNow": "Telecharger - C'est Gratuit",
     "cta.noCredit": "Aucune carte bancaire requise",
+    "cta.freeToStart": "Gratuit pour commencer",
     "cta.freeForever": "Plan gratuit pour toujours",
     "cta.cancelAnytime": "Annulez le premium a tout moment",
     
-    // Footer
     "footer.description": "Transformez votre parcours fitness avec des entrainements IA, des defis sociaux et un coaching personnalise.",
-    "footer.product": "Produit",
+    "footer.productTitle": "Produit",
+    "footer.companyTitle": "Entreprise",
+    "footer.supportTitle": "Assistance",
+    "footer.socialTitle": "Reseaux",
     "footer.features": "Fonctionnalites",
+    "footer.gamification": "Gamification",
+    "footer.aiCoach": "Coach IA",
     "footer.pricing": "Tarifs",
     "footer.download": "Telecharger",
     "footer.updates": "Mises a jour",
-    "footer.company": "Entreprise",
     "footer.about": "A propos",
     "footer.careers": "Carrieres",
     "footer.press": "Presse",
     "footer.contact": "Contact",
     "footer.resources": "Ressources",
     "footer.blog": "Blog",
-    "footer.help": "Centre d'aide",
+    "footer.helpCenter": "Centre d'aide",
     "footer.community": "Communaute",
     "footer.developers": "Developpeurs",
-    "footer.rights": "Tous droits reserves.",
+    "footer.allRightsReserved": "Tous droits reserves.",
+    "footer.privacyPolicy": "Politique de confidentialite",
+    "footer.termsOfService": "Conditions d'utilisation",
     "footer.privacy": "Confidentialite",
     "footer.terms": "Conditions",
     "footer.cookies": "Cookies",
   },
   ar: {
-    // Navbar
     "nav.features": "المميزات",
     "nav.gamification": "اللعب",
     "nav.aiCoach": "مدرب الذكاء الاصطناعي",
@@ -301,7 +318,6 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.download": "تحميل",
     "nav.downloadApp": "تحميل التطبيق",
     
-    // Hero
     "hero.badge": "منصة لياقة بالذكاء الاصطناعي",
     "hero.title": "حول اللياقة الى",
     "hero.titleHighlight": "لعبة اجتماعية",
@@ -319,7 +335,6 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.getOnGooglePlay": "احصل عليه من",
     "hero.googlePlay": "جوجل بلاي",
     
-    // Social Features
     "social.badge": "المميزات الاجتماعية",
     "social.title": "تواصل مع",
     "social.titleHighlight": "عشاق اللياقة",
@@ -333,7 +348,6 @@ const translations: Record<Language, Record<string, string>> = {
     "social.communityChat": "دردشة المجتمع",
     "social.communityChatDesc": "شارك النصائح والتحفيز واحتفل بالانتصارات معا.",
     
-    // Gamification
     "game.badge": "اللعب",
     "game.title": "اجعل اللياقة",
     "game.titleHighlight": "ممتعة ومجزية",
@@ -352,11 +366,21 @@ const translations: Record<Language, Record<string, string>> = {
     "game.thisWeek": "هذا الاسبوع",
     "game.pts": "نقطة",
     
-    // AI Coach
     "ai.badge": "مدرب الذكاء الاصطناعي",
     "ai.title": "مدربك الشخصي",
     "ai.titleHighlight": "بالذكاء الاصطناعي",
     "ai.subtitle": "احصل على خطط تمرين مخصصة وتدريب تكيفي يتطور معك.",
+    "ai.coach": "مدرب الذكاء الاصطناعي",
+    "ai.active": "نشط",
+    "ai.askCoach": "اسال مدربك الذكي...",
+    "ai.personalizedWorkouts": "تمارين مخصصة",
+    "ai.personalizedWorkoutsDesc": "الذكاء الاصطناعي ينشئ تمارين مخصصة لاهدافك.",
+    "ai.smartSuggestions": "اقتراحات ذكية",
+    "ai.smartSuggestionsDesc": "احصل على توصيات ذكية لتمارينك القادمة.",
+    "ai.progressTracking": "تتبع التقدم",
+    "ai.progressTrackingDesc": "تتبع تحسنك مع تحليلات مفصلة.",
+    "ai.adaptivePlans": "خطط تكيفية",
+    "ai.adaptivePlansDesc": "خططك تتطور مع تقدمك.",
     "ai.smartPlans": "خطط تمرين ذكية",
     "ai.smartPlansDesc": "الذكاء الاصطناعي ينشئ روتينات مخصصة بناء على اهدافك ومستوى لياقتك.",
     "ai.adaptiveTraining": "تدريب تكيفي",
@@ -367,7 +391,6 @@ const translations: Record<Language, Record<string, string>> = {
     "ai.suggestion": "بناء على تقدمك، اقترح التركيز على الجزء العلوي اليوم.",
     "ai.startWorkout": "ابدا التمرين",
     
-    // App Preview
     "preview.badge": "معاينة التطبيق",
     "preview.title": "تصميم جميل،",
     "preview.titleHighlight": "مميزات قوية",
@@ -385,13 +408,11 @@ const translations: Record<Language, Record<string, string>> = {
     "preview.notifications": "الاشعارات",
     "preview.weeklyProgress": "التقدم الاسبوعي",
     
-    // Testimonials
     "testimonials.badge": "الشهادات",
     "testimonials.title": "محبوب من",
     "testimonials.titleHighlight": "عشاق اللياقة",
     "testimonials.subtitle": "شاهد ما يقوله اعضاء مجتمعنا عن تجربتهم مع فيتيفا.",
     
-    // Stats
     "stats.badge": "تاثيرنا",
     "stats.title": "مجتمع",
     "stats.titleHighlight": "متنامي",
@@ -401,33 +422,39 @@ const translations: Record<Language, Record<string, string>> = {
     "stats.countriesReached": "دولة",
     "stats.appRating": "تقييم التطبيق",
     
-    // CTA
+    "cta.badge": "ابدأ الان",
     "cta.title": "مستعد لتحويل",
     "cta.titleHighlight": "رحلة لياقتك؟",
     "cta.subtitle": "انضم لالاف المستخدمين الذين يحققون اهدافهم بالفعل مع فيتيفا.",
     "cta.downloadNow": "حمل الان - مجاني",
     "cta.noCredit": "لا حاجة لبطاقة ائتمان",
+    "cta.freeToStart": "مجاني للبدء",
     "cta.freeForever": "خطة مجانية للابد",
     "cta.cancelAnytime": "الغ الاشتراك المميز في اي وقت",
     
-    // Footer
     "footer.description": "حول رحلة لياقتك مع تمارين بالذكاء الاصطناعي وتحديات اجتماعية وتدريب مخصص.",
-    "footer.product": "المنتج",
+    "footer.productTitle": "المنتج",
+    "footer.companyTitle": "الشركة",
+    "footer.supportTitle": "الدعم",
+    "footer.socialTitle": "تواصل اجتماعي",
     "footer.features": "المميزات",
+    "footer.gamification": "اللعب",
+    "footer.aiCoach": "مدرب الذكاء الاصطناعي",
     "footer.pricing": "الاسعار",
     "footer.download": "تحميل",
     "footer.updates": "التحديثات",
-    "footer.company": "الشركة",
     "footer.about": "من نحن",
     "footer.careers": "الوظائف",
     "footer.press": "الصحافة",
     "footer.contact": "اتصل بنا",
     "footer.resources": "الموارد",
     "footer.blog": "المدونة",
-    "footer.help": "مركز المساعدة",
+    "footer.helpCenter": "مركز المساعدة",
     "footer.community": "المجتمع",
     "footer.developers": "المطورون",
-    "footer.rights": "جميع الحقوق محفوظة.",
+    "footer.allRightsReserved": "جميع الحقوق محفوظة.",
+    "footer.privacyPolicy": "سياسة الخصوصية",
+    "footer.termsOfService": "شروط الخدمة",
     "footer.privacy": "الخصوصية",
     "footer.terms": "الشروط",
     "footer.cookies": "ملفات تعريف الارتباط",

@@ -15,11 +15,27 @@ export interface DownloadStats {
   by_platform: Record<string, number>;
 }
 
+async function apiRequest<T>(url: string, options?: RequestInit): Promise<T> {
+  const response = await fetch(`${API_BASE_URL}${url}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+    },
+    ...options,
+  });
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({ message: 'Request failed' }));
+    throw new Error(error.message || `HTTP ${response.status}`);
+  }
+
+  return response.json();
+}
+
 export async function fetchReviews(): Promise<Review[]> {
   try {
-    const response = await fetch(`${API_BASE_URL}/reviews`);
-    if (!response.ok) throw new Error('Failed to fetch reviews');
-    return await response.json();
+    return await apiRequest<Review[]>('/reviews');
   } catch (error) {
     console.error('Error fetching reviews:', error);
     return [];
@@ -33,23 +49,15 @@ export async function submitReview(data: {
   content: string; 
   rating?: number;
 }): Promise<{ message: string; review?: Review }> {
-  const response = await fetch(`${API_BASE_URL}/reviews`, {
+  return apiRequest('/reviews', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || 'Failed to submit review');
-  }
-  return await response.json();
 }
 
 export async function fetchDownloadStats(): Promise<DownloadStats> {
   try {
-    const response = await fetch(`${API_BASE_URL}/download-stats`);
-    if (!response.ok) throw new Error('Failed to fetch download stats');
-    return await response.json();
+    return await apiRequest<DownloadStats>('/download-stats');
   } catch (error) {
     console.error('Error fetching download stats:', error);
     return { total: 0, by_platform: {} };
@@ -58,9 +66,8 @@ export async function fetchDownloadStats(): Promise<DownloadStats> {
 
 export async function incrementDownload(platform?: string): Promise<void> {
   try {
-    await fetch(`${API_BASE_URL}/download-stats/increment`, {
+    await apiRequest('/download-stats/increment', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ platform }),
     });
   } catch (error) {
